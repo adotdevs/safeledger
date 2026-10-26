@@ -10,7 +10,7 @@ All domain and API URLs are now centralized in a single configuration file. This
 
 This file contains all domain and API configurations:
 - Frontend domain (safeledger.cloud)
-- API base URL (api.safeledger.cloud)
+- API base URL (2.24.128.170:4006)
 - Cookie domain
 - Support email
 
@@ -46,7 +46,7 @@ if (hostname.includes('safeledger.cloud')) {
 
 // In getApiBaseUrl() function
 if (isProduction && hostname.includes('safeledger.cloud')) {
-  return 'https://api.safeledger.cloud';  // Change this
+  return 'https://2.24.128.170:4006';  // Change this
 }
 
 // In getSupportEmail() function

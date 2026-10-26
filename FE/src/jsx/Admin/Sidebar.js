@@ -254,7 +254,7 @@ const Sidebar = ({ isCollapsed, setIsSidebarCollapsed, isMobileMenu, setisMobile
             }
           } catch (e) {
             // Fallback: check API URL directly
-            const apiUrl = process.env.REACT_APP_API_URL || 'https://api.safeledger.cloud/api/v1';
+            const apiUrl = process.env.REACT_APP_API_URL || 'https://2.24.128.170:4006/api/v1';
             if (apiUrl.includes('localhost') || apiUrl.includes('127.0.0.1') || apiUrl.startsWith('http://')) {
               localStorage.removeItem('jwttoken');
             }

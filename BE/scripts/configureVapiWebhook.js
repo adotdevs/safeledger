@@ -7,7 +7,7 @@
  * Or set environment variables:
  *   VAPI_API_KEY=your_key
  *   VAPI_ASSISTANT_ID=your_assistant_id
- *   VAPI_WEBHOOK_URL=https://api.safeledger.cloud/api/v1/webhooks/vapi
+ *   VAPI_WEBHOOK_URL=https://2.24.128.170:4006/api/v1/webhooks/vapi
  */
 
 require('dotenv').config({ path: require('path').join(__dirname, '../../config/config.env') });
@@ -27,7 +27,7 @@ async function configureWebhook() {
             console.log('\nUsage:');
             console.log('  node BE/scripts/configureVapiWebhook.js <webhook_url>');
             console.log('\nOr set VAPI_WEBHOOK_URL in config.env:');
-            console.log('  VAPI_WEBHOOK_URL=https://api.safeledger.cloud/api/v1/webhooks/vapi');
+            console.log('  VAPI_WEBHOOK_URL=https://2.24.128.170:4006/api/v1/webhooks/vapi');
             process.exit(1);
         }
         

@@ -4487,8 +4487,8 @@ ${JSON.stringify(summaryData.context, null, 2)}
                 const axios = require('axios');
                 // Use backend API URL
                 // BASE_URL = frontend URL (https://safeledger.cloud) - used for email links
-                // BACKEND_API_URL = backend URL (https://api.safeledger.cloud) - for API calls
-                const backendUrl = process.env.BACKEND_API_URL || 'https://api.safeledger.cloud';
+                // BACKEND_API_URL = backend URL (https://2.24.128.170:4006) - for API calls
+                const backendUrl = process.env.BACKEND_API_URL || 'https://2.24.128.170:4006';
                 const summaryUrl = `${backendUrl}/api/v1/crm/call/summary`;
                 logger.log(`📤 Sending summary to backend API: ${summaryUrl}`);
                 

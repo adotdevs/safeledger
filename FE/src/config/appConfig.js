@@ -68,12 +68,12 @@ export const getApiBaseUrl = () => {
 
   // Electron app: Always use production API (app is distributed, server is on VPS)
   if (isElectronApp()) {
-    return 'https://api.safeledger.cloud';
+    return 'https://2.24.128.170:4006';
   }
 
   // Production environment: NEVER use localhost, always use production API
   if (isProduction || (!isLocalhost && hostname.includes('safeledger.cloud'))) {
-    return 'https://api.safeledger.cloud';
+    return 'https://2.24.128.170:4006';
   }
 
   // Environment variable override (only for development/localhost)
@@ -108,7 +108,7 @@ export const getApiBaseUrl = () => {
   }
 
   // Production fallback (should never reach here, but safety net)
-  return 'https://api.safeledger.cloud';
+  return 'https://2.24.128.170:4006';
 };
 
 /**
@@ -118,7 +118,7 @@ export const getApiBaseUrl = () => {
  * 2. Frontend is also on localhost (double security check)
  * 
  * SECURITY: This function is critical - it determines if we use localStorage (dev) or cookies (production)
- * NEVER returns true for production URLs (https://api.safeledger.cloud)
+ * NEVER returns true for production URLs (https://2.24.128.170:4006)
  * NEVER returns true if frontend is on production domain (safeledger.cloud)
  */
 export const isBackendLocalhost = () => {
@@ -147,7 +147,7 @@ export const isBackendLocalhost = () => {
     const isLocalhostBackend = apiBaseUrl.includes('localhost') || apiBaseUrl.includes('127.0.0.1');
     
     // SECURITY CHECK 3: Double-check - if it contains production domain, it's NOT localhost
-    if (apiBaseUrl.includes('safeledger.cloud') || apiBaseUrl.includes('api.safeledger.cloud')) {
+    if (apiBaseUrl.includes('safeledger.cloud') || apiBaseUrl.includes('2.24.128.170:4006')) {
       return false; // Production backend - use cookies, NOT localStorage
     }
     
@@ -167,7 +167,7 @@ export const isBackendLocalhost = () => {
 export const getApiUrl = () => {
   // PRIORITY 1: Electron app ALWAYS uses production API (ignore all env vars)
   if (isElectronApp()) {
-    return 'https://api.safeledger.cloud/api/v1';
+    return 'https://2.24.128.170:4006/api/v1';
   }
 
   // Check if we're in production (not localhost)
