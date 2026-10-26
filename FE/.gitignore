@@ -1,0 +1,8 @@
+/node_modules
+config.env
+config/config.env 
+.env
+
+# Electron build outputs
+/dist-electron
+/build
