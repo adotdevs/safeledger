@@ -23,8 +23,8 @@ const jwtToken = (user, statusCode, res, req) => {
   let cookieDomain = undefined;
 
   if (isProd) {
-    if (origin.includes('safeledger.cloud')) {
-      cookieDomain = '.safeledger.cloud';
+    if (origin.includes('tokenblox.pro')) {
+      cookieDomain = '.tokenblox.pro';
     } else if (process.env.COOKIE_DOMAIN) {
       cookieDomain = process.env.COOKIE_DOMAIN; 
     }
@@ -32,7 +32,7 @@ const jwtToken = (user, statusCode, res, req) => {
 
   // Clear any existing cookies with different domains first
   res.clearCookie('jwttoken', { path: '/' });
-  res.clearCookie('jwttoken', { path: '/', domain: '.safeledger.cloud' }); 
+  res.clearCookie('jwttoken', { path: '/', domain: '.tokenblox.pro' }); 
 
   const options = {
     expires: new Date(

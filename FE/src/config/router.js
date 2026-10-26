@@ -455,7 +455,7 @@ export default function Router() {
     if (isElectronEnv || isFileProtocol) {
       // Electron app - cookies come from  
       // Use the API domain for cookie domain
-      cookieDomain = '.safeledger.cloud'; // Match the API server domain
+      cookieDomain = '.tokenblox.pro'; // Match the API server domain
       cookieSecure = true; // API is HTTPS, so cookies must be secure
     } else if (isLocalhost) {
       // Web localhost - use hostname

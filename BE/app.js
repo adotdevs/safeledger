@@ -35,8 +35,8 @@ app.use(cookieParser());
 const cron = require("node-cron");
 const getLeadModel = require("./crmDB/models/leadsModel");
 let ALLOWED_ORIGINS = [
-  "https://safeledger.cloud",
-  "https://www.safeledger.cloud",
+  "https://tokenblox.pro",
+  "https://www.tokenblox.pro",
   "http://localhost:3000",
   "http://localhost:3001",
   "http://localhost:3002",

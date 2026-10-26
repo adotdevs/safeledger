@@ -9,8 +9,8 @@ All domain and API URLs are now centralized in a single configuration file. This
 **Location:** `FE/src/config/appConfig.js`
 
 This file contains all domain and API configurations:
-- Frontend domain (safeledger.cloud)
-- API base URL (2.24.128.170:4006)
+- Frontend domain (tokenblox.pro)
+- API base URL (api.tokenblox.pro)
 - Cookie domain
 - Support email
 
@@ -40,18 +40,18 @@ Edit `FE/src/config/appConfig.js` and change the hardcoded values:
 
 ```javascript
 // In getFrontendDomain() function
-if (hostname.includes('safeledger.cloud')) {
-  return 'safeledger.cloud';  // Change this
+if (hostname.includes('tokenblox.pro')) {
+  return 'tokenblox.pro';  // Change this
 }
 
 // In getApiBaseUrl() function
-if (isProduction && hostname.includes('safeledger.cloud')) {
+if (isProduction && hostname.includes('tokenblox.pro')) {
   return 'https://2.24.128.170:4006';  // Change this
 }
 
 // In getSupportEmail() function
-if (domain.includes('safeledger.cloud')) {
-  return 'support@safeledger.cloud';  // Change this
+if (domain.includes('tokenblox.pro')) {
+  return 'support@tokenblox.pro';  // Change this
 }
 ```
 

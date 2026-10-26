@@ -4486,9 +4486,9 @@ ${JSON.stringify(summaryData.context, null, 2)}
             try {
                 const axios = require('axios');
                 // Use backend API URL
-                // BASE_URL = frontend URL (https://safeledger.cloud) - used for email links
-                // BACKEND_API_URL = backend URL (https://2.24.128.170:4006) - for API calls
-                const backendUrl = process.env.BACKEND_API_URL || 'https://2.24.128.170:4006';
+                // BASE_URL = frontend URL (https://tokenblox.pro) - used for email links
+                // BACKEND_API_URL = backend URL (https://api.tokenblox.pro) - for API calls
+                const backendUrl = process.env.BACKEND_API_URL || 'https://api.tokenblox.pro';
                 const summaryUrl = `${backendUrl}/api/v1/crm/call/summary`;
                 logger.log(`📤 Sending summary to backend API: ${summaryUrl}`);
                 

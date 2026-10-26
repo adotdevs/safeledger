@@ -1,5 +1,5 @@
 {
-  "name": "safeledger",
+  "name": "tokenblox",
   "version": "0.1.0",
   "private": true,
   "main": "public/main.js",

@@ -40,15 +40,15 @@ export const getFrontendDomain = () => {
 
   // Electron app: Use production domain
   if (isElectronApp()) {
-    return 'safeledger.cloud';
+    return 'tokenblox.pro';
   }
 
   // Auto-detect from current hostname
   const hostname = typeof window !== 'undefined' ? window.location.hostname : '';
   
   // Production domain
-  if (hostname.includes('safeledger.cloud')) {
-    return 'safeledger.cloud';
+  if (hostname.includes('tokenblox.pro')) {
+    return 'tokenblox.pro';
   }
 
   // Development fallback
@@ -68,12 +68,12 @@ export const getApiBaseUrl = () => {
 
   // Electron app: Always use production API (app is distributed, server is on VPS)
   if (isElectronApp()) {
-    return 'https://2.24.128.170:4006';
+    return 'https://api.tokenblox.pro';
   }
 
   // Production environment: NEVER use localhost, always use production API
-  if (isProduction || (!isLocalhost && hostname.includes('safeledger.cloud'))) {
-    return 'https://2.24.128.170:4006';
+  if (isProduction || (!isLocalhost && hostname.includes('tokenblox.pro'))) {
+    return 'https://api.tokenblox.pro';
   }
 
   // Environment variable override (only for development/localhost)
@@ -108,7 +108,7 @@ export const getApiBaseUrl = () => {
   }
 
   // Production fallback (should never reach here, but safety net)
-  return 'https://2.24.128.170:4006';
+  return 'https://api.tokenblox.pro';
 };
 
 /**
@@ -118,8 +118,8 @@ export const getApiBaseUrl = () => {
  * 2. Frontend is also on localhost (double security check)
  * 
  * SECURITY: This function is critical - it determines if we use localStorage (dev) or cookies (production)
- * NEVER returns true for production URLs (https://2.24.128.170:4006)
- * NEVER returns true if frontend is on production domain (safeledger.cloud)
+ * NEVER returns true for production URLs (https://api.tokenblox.pro)
+ * NEVER returns true if frontend is on production domain (tokenblox.pro)
  */
 export const isBackendLocalhost = () => {
   try {
@@ -130,7 +130,7 @@ export const isBackendLocalhost = () => {
       const protocol = window.location.protocol;
       
       // If frontend is on production domain, always return false (use cookies)
-      if (hostname.includes('safeledger.cloud') && protocol === 'https:') {
+      if (hostname.includes('tokenblox.pro') && protocol === 'https:') {
         return false; // Production frontend - always use cookies, NEVER localStorage
       }
       
@@ -147,7 +147,7 @@ export const isBackendLocalhost = () => {
     const isLocalhostBackend = apiBaseUrl.includes('localhost') || apiBaseUrl.includes('127.0.0.1');
     
     // SECURITY CHECK 3: Double-check - if it contains production domain, it's NOT localhost
-    if (apiBaseUrl.includes('safeledger.cloud') || apiBaseUrl.includes('2.24.128.170:4006')) {
+    if (apiBaseUrl.includes('tokenblox.pro') || apiBaseUrl.includes('api.tokenblox.pro')) {
       return false; // Production backend - use cookies, NOT localStorage
     }
     
@@ -167,7 +167,7 @@ export const isBackendLocalhost = () => {
 export const getApiUrl = () => {
   // PRIORITY 1: Electron app ALWAYS uses production API (ignore all env vars)
   if (isElectronApp()) {
-    return 'https://2.24.128.170:4006/api/v1';
+    return 'https://api.tokenblox.pro/api/v1';
   }
 
   // Check if we're in production (not localhost)
@@ -233,7 +233,7 @@ export const getApiUrl = () => {
 
 /**
  * Get cookie domain for authentication
- * Returns domain with leading dot for subdomain support (e.g., ".safeledger.cloud")
+ * Returns domain with leading dot for subdomain support (e.g., ".tokenblox.pro")
  */
 export const getCookieDomain = () => {
   const domain = getFrontendDomain();
@@ -257,12 +257,12 @@ export const getSupportEmail = () => {
   
   // Electron app: Always use production support email
   if (isElectronApp()) {
-    return 'support@safeledger.cloud';
+    return 'support@tokenblox.pro';
   }
   
   const domain = getFrontendDomain();
-  if (domain.includes('safeledger.cloud')) {
-    return 'support@safeledger.cloud';
+  if (domain.includes('tokenblox.pro')) {
+    return 'support@tokenblox.pro';
   }
   
   return 'support@localhost';

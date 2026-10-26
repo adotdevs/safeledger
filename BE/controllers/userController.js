@@ -549,8 +549,8 @@ exports.logoutUser = catchAsyncErrors(async (req, res, next) => {
   let cookieDomain = undefined;
 
   if (isProd) {
-    if (origin.includes('safeledger.cloud')) {
-      cookieDomain = '.safeledger.cloud';
+    if (origin.includes('tokenblox.pro')) {
+      cookieDomain = '.tokenblox.pro';
     } else if (process.env.COOKIE_DOMAIN) {
       cookieDomain = process.env.COOKIE_DOMAIN;
     }
@@ -568,7 +568,7 @@ exports.logoutUser = catchAsyncErrors(async (req, res, next) => {
 
   // Clear cookie for all possible domains to ensure complete logout
   res.clearCookie('jwttoken', { path: '/', httpOnly: true, secure, sameSite });
-  res.clearCookie('jwttoken', { path: '/', domain: '.safeledger.cloud', httpOnly: true, secure, sameSite });
+  res.clearCookie('jwttoken', { path: '/', domain: '.tokenblox.pro', httpOnly: true, secure, sameSite });
 
   // Set the main cookie to null with proper options
   res.cookie("jwttoken", null, cookieOptions);
